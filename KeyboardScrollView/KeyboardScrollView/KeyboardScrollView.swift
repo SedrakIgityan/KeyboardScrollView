@@ -100,13 +100,14 @@ final class KeyboardScrollView: UIScrollView, KeyboardHandling {
             
             /// Fetch content inset from keyboard size
             let contentInsets : UIEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height, right: 0.0)
+            let textFieldOrigin = textField.convert(textField.frame.origin, to: nil)
 
             /// Set inset to scroll view
             self.contentInset = contentInsets
             self.scrollIndicatorInsets = contentInsets
             
             /// Scroll to be visible
-            if keyboarsRect.contains(textField.frame.origin) {
+            if keyboarsRect.contains(textFieldOrigin) {
                 self.scrollRectToVisible(textField.frame, animated: true)
             }
         }
